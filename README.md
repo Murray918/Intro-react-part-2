@@ -188,14 +188,14 @@ class Hello extends Component {
         <p>You are {this.props.age} years old</p>
         <p>The initial count is {this.state.counter}
         </p>
-        <button onClick={(e) => this.handleClick(e)}>click me!</button>
+        <button onClick={this.handleClick}>click me!</button>
       </div>
     )
   }
 }
 ```
 
-> Take a closer look at how this event is implemented. We use an attribute called `onClick` to define the behavior as to what happens when we click this particular button. As it's value, we're passing in an anonymous function that invokes handleClick, a function defined on this component.
+> Take a closer look at how this event is implemented. We use an attribute called `onClick` to define the behavior as to what happens when we click this particular button. As it's value, we're passing the handler we created, when we click the function will be called 
 
 Whenever we run `.setState`, our component does a "diff", comparing the Virtual DOM node with the updated state to the current DOM. It only replaces the current DOM with parts that have changed.
 
