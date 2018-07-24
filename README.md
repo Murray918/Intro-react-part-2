@@ -174,7 +174,7 @@ class Hello extends Component {
       counter: 0
     }
   }
-  handleClick (e) {
+  handleClick = (e) => {
     // setState is inherited from the Component class
     this.setState({
       counter: this.state.counter + 1
@@ -195,7 +195,7 @@ class Hello extends Component {
 }
 ```
 
-> Take a closer look at how this event is implemented. We use an attribute called `onClick` to define the behavior as to what happens when we click this particular button. As it's value, we're passing the handler we created, when we click the function will be called 
+> Take a closer look at how this event is implemented. We use an attribute called `onClick` to define the behavior as to what happens when we click this particular button. As it's value, we're passing our handleClick, a function defined on this component.
 
 Whenever we run `.setState`, our component does a "diff", comparing the Virtual DOM node with the updated state to the current DOM. It only replaces the current DOM with parts that have changed.
 
@@ -223,7 +223,7 @@ Take some time to identify the necessary flow of data. Where does the informatio
 
 In React, every component will have props. We can use props to take in data from "parent" components. 
 
-Because state can change, we want to have as few components holding their state as possible. Only the most parent component should be responsible for fetching data and holding it in its state. That parent component should then distribute that data downward to its child components.
+Because state can change, we want to have as few components holding their state as possible. Only the most parent component (Container Component) should be responsible for fetching data and holding it in its state. That parent component (Container) should then distribute that data downward to its child components (often presentational components).
 
 This is sensical. For example, with the video list and video list items... 
 
